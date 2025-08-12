@@ -1,0 +1,46 @@
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.filters-top {
+  flex: 0 0 80%;
+  overflow-y: auto;
+   border: 2px solid #c4bebe;
+  box-shadow: 2px;
+  border-radius: 10px;
+}
+
+
+.filters-bottom {
+  flex: 0 0 20%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.filter-item {
+  margin-bottom: 3rem;
+  width: 90%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.filter-item label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.filter-item select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.request {
+  width: 100%;
+  font-weight: bold;
+}

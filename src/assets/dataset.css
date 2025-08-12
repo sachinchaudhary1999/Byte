@@ -1,0 +1,52 @@
+.dataset {
+  display: flex;
+  flex-direction: row; 
+  height: 90vh;
+  
+}
+
+.filters-container {
+  height: 100%;      
+  padding: 1px;
+  width: 40;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.table-container {
+  width: 70%;
+  /* padding: 10px; */
+  box-sizing: border-box;
+  height: 90vh;
+} 
+
+/* .filters-container {
+  flex: 0 0 30%;  
+  height: 100%;
+  padding: 1px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.table-container {
+  flex: 0 0 70%; 
+  padding: 10px;
+  box-sizing: border-box;
+  height: 90vh;
+} */
+
+
+
+@media (max-width: 768px) {
+  .dataset {
+    flex-direction: column; 
+    height: auto;
+  }
+
+  .filters-container,
+  .table-container {
+    width: 100%; 
+  }
+}

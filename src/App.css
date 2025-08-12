@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+  flex-direction: column; 
+  background-color: rgba(59, 130, 246, 0.03);
+}
+
+.container1 {
+  margin-bottom: 3px;
+}
