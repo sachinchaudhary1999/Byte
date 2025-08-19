@@ -4,81 +4,265 @@
   flex-direction: column;
   padding: 2px;
   box-sizing: border-box;
-  border: 1px solid #757474;
   width: 100%;
+  height: 90vh; /* full height container */
 }
 
 .filters-container {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* spacing below filters */
 }
 
 .table-container {
-  flex: 1;            
-  overflow-y: auto;   
-   /* border: 2px solid #c4bebe; */
-  /* border-radius: 10px; */
+  flex: 1;
   width: 100%;
   height: 90vh;
-}
-
-.custom-table {
-  width: 100%;
+  max-height: 90vh;
+/* overflow-y: auto;   */
   border-collapse: collapse;
-  table-layout: fixed; 
-  border: 2px solid #c4bebe; 
-  border-radius: 5%;
-   width: 100%;
-  height: 90vh;
+  table-layout: fixed;  /* ensures proper alignment */
+  border-radius: 20px;
+  /* margin-right: 30px; */
+}
+
+/* =============================
+   Table Styles
+============================= */
+.table {
+  width: 100%;
+  overflow-y: auto;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+
+
+  border-collapse: collapse;  /* merge borders for clean look */      */
+  border-bottom : none;
+  border-radius: 20px;
+  background-color: rgba(59, 130, 246, 0.03);
+  /* margin-right: 30px; */
+
+}
+
+.table-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
 }
 
 
-.custom-table th,
-.custom-table td {
-  border: 1px solid #ddd;
-  /* padding: 5px; */
-  text-align: left;
-  background-color: white;
-  overflow: hidden;  
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* Fixed column widths for 5 columns */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 30%;   /* Name */
 }
 
+.table td:nth-child(1) {   
+   /* color: rgb(59 130 246 / 50%)     */
+   color: #4B5563;
+    font-weight:bold
+    
+}
 
-.custom-table thead th {
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 14%;   /* Total (Category + Country) */
+  text-align: center; /* center numbers/text */
+  color: #0768c9;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 13%;   /* Email */
+  text-align: center;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 13%;   /* Phone */
+  text-align: center;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 30%;   /* Actions */
+}
+
+/* Header cells */
+.table th {
+  text-align: center;          /* always centered */
+  padding: 10px;
+   background-color:rgb(179, 209, 254);
+;
+   /* background-color: #0965fa; */
+
   position: sticky;
   top: 0;
-  background-color: rgba(59, 130, 246, 0.3);
-  z-index: 10;
-  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); 
+  z-index: 2 ;                  /* ensure it stays above rows */
+  overflow: hidden;            /* prevent text spilling */
+  /* white-space: nowrap;         keep headers in one line */
+  text-overflow: ellipsis;     /* add ... if header text is too long */
+  color: #075db3;
+}
+
+/* Body cells */s
+.table td {
+  padding: 20px;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  vertical-align: top;
+  background-color: white;      /* solid background */
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+  
 }
 
 
+
+
+/* Keep left/right borders for first and last column */
+.table th:first-child,
+.table td:first-child {
+  border-left: 1px solid #ddd;
+}
+
+.table th:last-child,
+.table td:last-child {
+  border-right: 1px solid #ddd;
+}
+
+
+
+/* Default row background */
+.table tbody tr {
+  background-color: white;
+  transition: background-color 0.1s ease; /* smooth hover effect */
+}
+
+/* Hover effect on row */
+.table tbody tr:hover {
+  background-color: rgba(9, 101, 250, 0.1); /* light blue */
+  cursor: pointer;
+}
+
+
+
+/* =============================
+   Action Buttons & Groups
+============================= */
 .btn {
+  display: flex;                /* make icon + text inline */
+  flex-direction: row;  /* icon before text */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                    /* spacing between icon/text */
+  
   padding: 6px 10px;
-  margin-right: 5px;
+  margin: 5px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
   color: white;
+
+  border: 1px solid rgb(215, 215, 236);
+ 
 }
 
+
+
+
+.btn:hover {
+  background-color: rgba(9, 101, 250, 0.1); /* light transparent blue on hover */
+  cursor: pointer;
+}
+
+/* Different button types */
 .btn.view {
-  background-color: #28a745;
+    background-color: rgba(59, 130, 246, 0.03);
+    color: blue;
 }
 
 .btn.sample {
-  background-color: #007bff;
+     background-color: rgba(59, 130, 246, 0.03);
+    color: blue;
 }
 
 .btn.purchase {
-  background-color: #ffc107;
-  color: black;
+  background-color: blue /* yellow */
 }
 
+/* Button container in table cells */
+.action-cell {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 10px;  /* spacing between buttons */
+}
+
+/* Button group outside table (if used separately) */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =============================
+   No Data Placeholder
+============================= */
 .no-data {
   text-align: center;
   padding: 20px;
   font-size: 16px;
   color: #555;
+}   
+
+
+.pagination{
+    display: flex;
+  justify-content: space-between; /* text left, buttons right */
+  align-items: center;
+  /* margin-top: 15px; */
+   background-color:  rgba(9, 101, 250, 0.3);
+}
+
+
+.pagination .buttons {
+    background-color:  rgba(9, 101, 250, 0.3);
+  display: flex;
+  border: none;
+  gap: 30 px; /* spacing between Prev and Next buttons */
+}
+
+
+.showing{
+     color: #4B5563;
+    font-weight: 600;
+}
+
+
+
+
+
+.previous{
+    background-color: rgb(223, 50, 50);
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.next{
+    background-color: #007bff; /* blue */
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
 }

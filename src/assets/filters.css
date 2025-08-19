@@ -44,3 +44,24 @@
   width: 100%;
   font-weight: bold;
 }
+
+/* Base dropdown style */
+.filter-item select {
+  width: 250px;   
+  height: 40px;
+  border: 1px solid #1182f2; /* blue border */
+  border-radius: 6px;
+  padding: 6px;
+  outline: none; /* remove default black outline */
+  color: #000; /* text color */
+}
+
+/* Keep it blue when clicked/focused */
+.filter-item select:focus {
+    border: 2px solid #0768c9; /* force blue */
+  box-shadow: 0 0 4px rgba(22, 97, 172, 0.9); /* optional blue glow */
+  outline: none;
+}
+
+
+
